@@ -17,3 +17,14 @@
 *Add show template
 *Add links for show page
 *Style show template
+
+##Edit/Update
+* Add edit route
+* Add edit form
+* Add Update route
+* Add update form
+* Add method- override
+
+#Delete
+* Add a delete route
+* Add edit and destroy links

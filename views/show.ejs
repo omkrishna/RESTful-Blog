@@ -1,7 +1,18 @@
 <%- include ('partials/header') %>
 
 <div class="ui main text container segment">
-	<div class="ui huge header"> <%= blog.title %> </div>
-	<img class="blog-img" src="<%= blog.image %>">
-	<p><%= blog.created.toDateString() %> </p><br><br>
+	<div class="ui huge header">TITLE :  <%= blog.title %> </div>
+	<img class="blog-img " src="<%= blog.image %>">
+	<p> Created On : <%= blog.created.toDateString() %> </p>
 	<p><%= blog.body %> </p>
+
+	<br><br>
+	<a style="float:left; " href="/blogs/<%= blog._id%>/edit" class="ui purple basic button"> UPDATE </a>
+
+
+
+	<form action="/blogs/<%= blog._id%>?_method=DELETE" method="POST">
+		<button class="ui red basic button"> DELETE </button>
+
+	</form>
+</div>

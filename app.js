@@ -2,11 +2,13 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var methodOverride = require('method-override')
 
 mongoose.connect("mongodb://localhost/restful_blog_app");
 app.set("view engine","ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(methodOverride("_method"));
 
 var blogSchema = new mongoose.Schema({
 	title:String,
@@ -63,6 +65,40 @@ app.get("/blogs/:id",function(req,res){
 	})
 })
 
+
+app.get("/blogs/:id/edit",function(req,res){
+	Blog.findById(req.params.id,function(err,Blog){
+		if(err){
+			console.log("Err");
+		}else{
+			res.render("edit",{blog:Blog})
+		}
+	})
+})
+
+
+app.put("/blogs/:id",function(req,res){
+	Blog.findByIdAndUpdate(req.params.id,req.body.blog,function(err,Blog){
+		if(err){
+			res.redirect("/blogs")
+		} else {
+			res.redirect("/blogs/" + req.params.id);
+		}
+	})
+
+
+})
+
+
+app.delete("/blogs/:id",function(req,res){
+	Blog.findByIdAndRemove(req.params.id,function(err){
+		if(err){
+			console.log("Error during Deletion")
+		} else {
+			res.redirect("/")
+		}
+	})
+})
 
 app.listen(3000,function(){
 	console.log("Blog server running")
