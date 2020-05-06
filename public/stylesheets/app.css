@@ -1,0 +1,24 @@
+
+.container.main{
+	margin-top:7em;
+	border:1px solid black;
+}
+
+.thumbnail{
+	height:300px;
+	width:300px;
+	border-radius:10px;
+}
+
+.blog-img{
+	height:350px;
+	width:450px;
+	border-radius:10px;
+}
+
+
+.card{
+	padding-top:5em;
+	padding-left:3em;
+	float:left;
+}

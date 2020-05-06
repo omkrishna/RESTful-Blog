@@ -1,0 +1,19 @@
+*Show example of RESTful routing in practice
+
+##Blog Index
+*Setup Blog Ap
+*Create the blog model
+*Add INDEX route and template
+*Add simple Navbar
+
+##Basic Layout
+*Add header and footer partials
+*Include Semantic UI
+*Add Navbar
+
+
+##Show 
+*Add show route
+*Add show template
+*Add links for show page
+*Style show template
